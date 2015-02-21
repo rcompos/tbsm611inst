@@ -1,0 +1,760 @@
+################################################################################
+#
+# InstallShield Options File Template
+#
+# Wizard name: Install
+# Wizard source: ESync3000setup.jar
+# Created on: Sun Sep 28 22:28:50 CDT 2014
+# Created by: InstallShield Options File Generator
+#
+# This file can be used to create an options file (i.e., response file) for the
+# wizard "Install". Options files are used with "-options" on the command line
+# to modify wizard settings.
+# 
+# The settings that can be specified for the wizard are listed below. To use
+# this template, follow these steps:
+# 
+#    1. Enable a setting below by removing leading '###' characters from the
+#    line (search for '###' to find settings you can change).
+# 
+#    2. Specify a value for a setting by replacing the characters '<value>'.
+#    Read each setting's documentation for information on how to specify its
+#    value.
+# 
+#    3. Save the changes to the file.
+# 
+#    4. To use the options file with the wizard, specify -options <file-name>
+#    as a command line argument to the wizard, where <file-name> is the name
+#    of this options file.
+#
+################################################################################
+
+
+################################################################################
+#
+# IBM Tivoli Monitoring and Tivoli Event Synchronization Install Location
+#
+# The install location of the product. Specify a valid directory into which the
+# product should be installed. If the directory contains spaces, enclose it in
+# double-quotes. For example, to install the product to C:\Program Files\My
+# Product, use
+# 
+#    -P installLocation="C:\Program Files\My Product"
+#
+
+
+### -P installLocation=<value>
+-P installLocation=/opt/IBM/SitForwarder
+
+
+
+################################################################################
+#
+# Selected Locales
+#
+# The list of selected locales. This list determines which locale-specific
+# components are installed for the product. Legal values are:
+# 
+#    cs    - Czech
+#    fr    - French
+#    de    - German
+#    hu    - Hungarian
+#    it    - Italian
+#    ja    - Japanese
+#    ko    - Korean
+#    pl    - Polish
+#    pt_BR - Portuguese (Brazil)
+#    ru    - Russian
+#    zh    - Simplified Chinese
+#    es    - Spanish
+#    zh_TW - Traditional Chinese
+# 
+# For example, to select Czech, use
+# 
+#    -P selectedLocales=cs
+# 
+# You can specify multiple locales by separating each locale with a comma (',').
+# For example, the value "cs,fr" will cause Czech and French to be selected.
+#
+
+
+### -P selectedLocales=<value>
+
+
+################################################################################
+#
+# User Input Field - filename
+#
+# Name of the configuration file. Suggested value is situpdate.conf
+#
+
+
+### -W configInfoPanel.filename="<value>"
+
+
+################################################################################
+#
+# User Input Field - pollingInt
+#
+# Number of seconds that the long running program will sleep when there are no
+# new situation updates to process. Must be an integer. Suggested value is 3
+#
+
+
+### -W configInfoPanel.pollingInt="<value>"
+
+
+################################################################################
+#
+# User Input Field - crcByteCnt
+#
+# Number of bytes that the long running process will use when it saves the
+# location of the last event it processed. Must be an integer. Suggested value
+# is 50
+#
+
+
+### -W configInfoPanel.crcByteCnt="<value>"
+
+
+################################################################################
+#
+# User Input Field - cmsSoapURL
+#
+# The URL of the TEMS SOAP server. Suggested value is cms/soap
+#
+
+
+### -W configInfoPanel.cmsSoapURL="<value>"
+
+
+################################################################################
+#
+# User Input Field - bufFlushRate
+#
+# Rate at which SOAP requests will be sent to TEMS from Tivoli Enterprise
+# Console via Web Services. Must be an integer. Suggested value is 10
+#
+
+
+### -W configInfoPanel.bufFlushRate="<value>"
+
+
+################################################################################
+#
+# User Input Field - logLevel
+#
+# Level of debug detail being provided by the long-running program. Valid values
+# are low, med and verbose. Suggested value is low.
+#
+
+
+### -W configInfoPanel.logLevel="<value>"
+
+
+################################################################################
+#
+# User Input Field - filename
+#
+# Name of the configuration file. Suggested value is situpdate.conf
+#
+
+
+### -W configInfoPanel1a.filename="<value>"
+
+
+################################################################################
+#
+# User Input Field - pollingInt
+#
+# Number of seconds that the long running program will sleep when there are no
+# new situation updates to process. Must be an integer. Suggested value is 3
+#
+
+
+### -W configInfoPanel1a.pollingInt="<value>"
+
+
+################################################################################
+#
+# User Input Field - crcByteCnt
+#
+# Number of bytes that the long running process will use when it saves the
+# location of the last event it processed. Must be an integer. Suggested value
+# is 50
+#
+
+
+### -W configInfoPanel1a.crcByteCnt="<value>"
+
+
+################################################################################
+#
+# User Input Field - cmsSoapURL
+#
+# The URL of the TEMS SOAP server. Suggested value is cms/soap
+#
+
+
+### -W configInfoPanel1a.cmsSoapURL="<value>"
+
+
+################################################################################
+#
+# User Input Field - bufFlushRate
+#
+# Rate at which SOAP requests will be sent to TEMS from Tivoli Enterprise
+# Console via Web Services. Must be an integer. Suggested value is 10
+#
+
+
+### -W configInfoPanel1a.bufFlushRate="<value>"
+
+
+################################################################################
+#
+# User Input Field - logLevel
+#
+# Level of debug detail being provided by the long-running program. Valid values
+# are low, med and verbose. Suggested value is low.
+#
+
+
+### -W configInfoPanel1a.logLevel="<value>"
+
+
+################################################################################
+#
+# User Input Field - filesize
+#
+# Maximum size, in bytes, of any single cache file. Must be an integer.
+# Suggested value is 50000
+#
+
+
+### -W configInfoPanel2.filesize="<value>"
+
+
+################################################################################
+#
+# User Input Field - fileNumber
+#
+# Maximum number of cache files that can exist. Must be an integer. Suggested
+# value is 10
+#
+
+
+### -W configInfoPanel2.fileNumber="<value>"
+
+
+################################################################################
+#
+# User Input Field - fileLocn
+#
+# Directory in which the cache files reside. Must be a directory that exists.
+# Suggested value is /var/TME/TEC/OM_TEC/persistence for Unix platforms and
+# C:\tmp\TME\TEC\OM_TEC\persistence for windows.
+#
+
+
+### -W configInfoPanel2.fileLocn="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname1
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname1="<value>"
+-W cmdSvrsPnlNotGuiMode.hostname1="fsxopsxtems.wrk.fs.usda.gov"
+
+
+
+################################################################################
+#
+# User Input Field - userID1
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID1="<value>"
+-W cmdSvrsPnlNotGuiMode.userID1="sysadmin"
+
+
+################################################################################
+#
+# User Input Field - pswd1
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd1="<value>"
+-W cmdSvrsPnlNotGuiMode.pswd1=""
+
+
+################################################################################
+#
+# User Input Field - retypePswd1
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd1="<value>"
+-W cmdSvrsPnlNotGuiMode.retypePswd1=""
+
+
+################################################################################
+#
+# User Input Field - hostname2
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname2="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID2
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID2="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd2
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd2="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd2
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd2="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname3
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname3="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID3
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID3="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd3
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd3="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd3
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd3="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname4
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname4="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID4
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID4="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd4
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd4="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd4
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd4="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname5
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname5="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID5
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID5="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd5
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd5="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd5
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd5="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname6
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname6="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID6
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID6="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd6
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd6="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd6
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd6="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname7
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname7="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID7
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID7="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd7
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd7="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd7
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd7="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname8
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname8="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID8
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID8="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd8
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd8="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd8
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd8="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname9
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname9="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID9
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID9="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd9
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd9="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd9
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd9="<value>"
+
+
+################################################################################
+#
+# User Input Field - hostname10
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.hostname10="<value>"
+
+
+################################################################################
+#
+# User Input Field - userID10
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.userID10="<value>"
+
+
+################################################################################
+#
+# User Input Field - pswd10
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.pswd10="<value>"
+
+
+################################################################################
+#
+# User Input Field - retypePswd10
+#
+#
+
+
+### -W cmdSvrsPnlNotGuiMode.retypePswd10="<value>"
+
+
+################################################################################
+#
+# User Input Field - rbInstallType
+#
+# You may choose to have the installer automatically install the Tivoli
+# Enterprise Console Event Synchronization rules and classes to a rule base of
+# your choice. For advanced users, you may choose to manually update your rule
+# base after installation is complete. WARNING: If you choose the manual option,
+# you will have to import the rules and baroc files into the active rule base
+# after installation is complete in order for Tivoli Enterprise Console Event
+# Synchronization to function properly. Valid values are "automatic" or
+# "manual".
+#
+
+
+### -W rbInstallTypePanel.rbInstallType="<value>"
+
+
+################################################################################
+#
+# User Input Field - chooseNewOrExistingRB
+#
+# You can choose to create a new rule base or use an existing one to add the
+# Omagamon ruleset and baroc files. If you choose to create a new rule base,
+# specify the name and path for the rule base and whether to import an existing
+# rule base into the new rule base. Valid values are "new" or "existing".
+#
+
+
+### -W rulebasePanel.chooseNewOrExistingRB="<value>"
+
+
+################################################################################
+#
+# User Input Field - rbName
+#
+# The name of the rule base to be created or updated
+#
+
+
+### -W rulebasePanel.rbName="<value>"
+
+
+################################################################################
+#
+# User Input Field - rbPath
+#
+# The full path of the rule base to be created or updated
+#
+
+
+### -W rulebasePanel.rbPath="<value>"
+
+
+################################################################################
+#
+# User Input Field - fromRB
+#
+# Name of the rule base that will be copied into the new rule base
+#
+
+
+### -W rulebasePanel.fromRB="<value>"
+
+
+################################################################################
+#
+# User Input Field - backupName
+#
+#
+
+
+### -W bckupERB.backupName="<value>"
+
+
+################################################################################
+#
+# User Input Field - backupPath
+#
+#
+
+
+### -W bckupERB.backupPath="<value>"
+
+
+################################################################################
+#
+# User Input Field - restartTEC
+#
+#
+
+
+### -W restartTECQ.restartTEC="<value>"

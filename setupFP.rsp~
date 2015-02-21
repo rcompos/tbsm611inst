@@ -1,0 +1,125 @@
+###############################################################
+##
+## InstallAnywhere variables to configure for silent install
+##
+##    Usage on Windows: setup-windows.exe -f <PathToThisFile>
+##    Usage on Unix: setup-<Platform>.bin -f <PathToThisFile>
+##
+## Path should be fully-qualified. For example, on Windows,
+##   setup-windows.exe -f \temp\setupFP.rsp
+## will NOT work.
+##   setup-windows.exe -f C:\temp\setupFP.rsp
+## must be used.
+##
+## Notes:
+## - Do not run from terminal services unless running from the console
+## - Computer must be connected to a network and have a valid IP address
+##
+##Notes:
+## - Apply fixpack using the same user id that was used for
+##   the initial installation of TBSM 6.1.1
+##
+###############################################################
+
+###############################################################
+# Do not change the following line;  This indicates to use
+# this file for a silent installation.
+###############################################################
+
+INSTALLER_UI=SILENT
+
+###############################################################
+#
+# Set Silent License Acceptance
+#
+# Accept license agreement: remove the number sign (#),
+# for example, LICENSE_ACCEPTED=true
+#
+# If the LICENSE_ACCEPTED is anything other than "true",
+# the installation will exit, no log will be produced,
+# and no indication of failure provided.
+#
+# By removing the number sign (#) and changing the value
+# for LICENSE_ACCEPTED from "false" to "true", you have signified
+# acceptance of the Tivoli Business Service Manager license agreement.
+#
+###############################################################
+
+#LICENSE_ACCEPTED=false
+LICENSE_ACCEPTED=true
+
+###############################################################
+#
+# DE Backup Location
+#
+#
+# Specify a valid directory into which DE should be
+# backed up. The directory can NOT contain spaces. To backup
+# the product to "C:\IBM", use BACKUP_DIR=C:\\IBM
+#
+# The directory you specify MUST already exist.
+#
+# So in the above example, the directory "IBM" must already exist
+# in order to be a valid directory for backup.
+#
+
+# Windows platform:
+#BACKUP_DIR=C:\\TBSMFP1_bkup
+
+# UNIX platform:
+#BACKUP_DIR=/TBSMFP1_bkup
+BACKUP_DIR=/opt/IBM/tivoli
+
+# If No DE Backup is desired, keep above commented out and
+# un-comment the following:
+#
+#NO_BACKUP=true
+#
+###############################################################
+
+###############################################################
+#
+#---- Choose Install Folder
+#---- Silent Install: remove # sign and provide fully qualified path
+#----     example: USER_INSTALL_DIR=C:\\Program Files\\IBM\\tivoli\\tipv2
+#----     Note: Windows considers \ to be an escape character so use \\ when defining
+#----           the path on Windows
+#----           The defined path must be a path where TIP is installed.
+#----
+#---- For reuse of an instance of Tivoli Integrated Portal, point to its existing installation location.
+#USER_INSTALL_DIR=C:\\Program Files\\IBM\\tivoli\\tipv2
+#----
+#---- UNIX platform:
+#USER_INSTALL_DIR=/opt/IBM/tivoli/tipv2
+USER_INSTALL_DIR=/opt/IBM/tivoli/tipv2
+
+#---- Select reuse if you want to reuse an existing TIP location
+IAGLOBAL_INSTALL_LOCATION_SELECTION=reuse
+
+###############################################################
+
+
+
+
+###############################################################
+#
+# WebSphere Information
+#
+# The following is the user ID and password for accessing the
+# TIP profile created on the TBSM Dashboard Server.
+#
+
+IAGLOBAL_WASUserID=tipadmin
+#IALOCAL_WASPassword=<Password>
+IALOCAL_WASPassword=tipadmin
+#IALOCAL_WASPassword_Confirm=<CONFIRM THE ABOVE PASSWORD HERE>
+IALOCAL_WASPassword_Confirm=tipadmin
+
+#
+###############################################################
+
+
+
+#########################################################
+## End of silent installation information
+###############################################################

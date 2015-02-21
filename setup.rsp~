@@ -1,0 +1,751 @@
+###############################################################
+##
+## InstallAnywhere variables to configure for silent install
+##
+##    Usage on Windows: setup-windows.exe -f <PathToThisFile>
+##    Usage on Unix: setup-<Platform>.bin -f <PathToThisFile>
+##
+## Path should be fully-qualified. For example, on Windows,
+##   setup-windows.exe -f \temp\setup.rsp 
+## will NOT work.
+##   setup-windows.exe -f C:\temp\setup.rsp
+## must be used.
+##
+## Notes: 
+## - Do not run from terminal services unless running from the console
+## - Computer must be connected to a network and have a valid IP address
+## 
+## - For Windows, 
+##   - Installation ID must be local (not a domain ID) and be Administrator 
+##     or an ID that has the following permissions:
+##       - Act as part of the operating system
+##       - Logon as a service
+##       - Update the registry
+##   - Ensure Secondary Logon service is running
+##   - Ensure Server service is running
+##
+## - For Unix, be sure to run from a non-root user
+## 
+###############################################################
+
+###############################################################
+# Do not change the following line;  This indicates to use
+# this file for a silent installation.
+###############################################################
+
+INSTALLER_UI=SILENT
+
+###############################################################
+#
+# Set Silent License Acceptance
+#
+# Accept license agreement: remove the number sign (#), 
+# for example, LICENSE_ACCEPTED=true
+#
+# If the LICENSE_ACCEPTED is anything other than "true",
+# the installation will exit, no log will be produced,  
+# and no indication of failure provided.
+#
+# By removing the number sign (#) and changing the value
+# for LICENSE_ACCEPTED from "false" to "true", you have signified 
+# acceptance of the Tivoli Business Service Manager license agreement.
+# 
+###############################################################
+
+#LICENSE_ACCEPTED=false
+LICENSE_ACCEPTED=true
+
+###############################################################
+#
+# IBM Tivoli Business Service Manager (TBSM) Install Location
+#
+# The install location of the product. Specify a valid directory 
+# into which the product should be installed.
+# To install the product to "C:\Program Files\IBM\tivoli", use 
+# USER_INSTALL_DIR=C:\\Program Files\\IBM\\tivoli
+#
+
+# Windows platform:  
+#USER_INSTALL_DIR=C:\\Program Files\\IBM\\tivoli
+
+# UNIX platform:  
+USER_INSTALL_DIR=/opt/IBM/tivoli
+
+#
+# Decision related.
+# The supported values for IAGLOBAL_INSTALL_LOCATION_SELECTION are 
+# "create" and "reuse".
+#
+# Select "reuse" if you want to reuse an existing TIP location.
+#
+IAGLOBAL_INSTALL_LOCATION_SELECTION=create
+
+#
+# If you are re-using an existing TIP, USER_INSTALL_DIR needs to be 
+# set to the location of TIP_HOME for the TIP instance you are re-using. 
+# Typical TIP_HOME locations are "C:\\Program Files\\IBM\\tivoli\\tipv2" 
+# and "/opt/IBM/tivoli/tipv2".
+#
+###############################################################
+
+
+###############################################################
+#
+# IBM Tivoli Business Service Manager (TBSM) Backup Location
+#
+# If you are upgrading an existing TBSM or TIP installation, 
+# you must specify a location to backup the product. 
+#
+# Specify a valid directory into which the product should be 
+# backed up. The directory can NOT contain spaces. To backup 
+# the product to "C:\IBM", use BACKUP_DIR=C:\\IBM
+#
+# The directory you specify MUST already exist.  
+#
+# So in the above example, the directory "IBM" must already exist
+# in order to be a valid directory for backup.
+#
+
+# Windows platform:  
+#BACKUP_DIR=C:\\IBM
+
+# UNIX platform:  
+BACKUP_DIR=/opt/IBM
+
+#
+###############################################################
+
+
+###############################################################
+#
+# Installation Type
+#
+# Specify the installation type. Valid values are "default" and
+# "advanced".
+# 
+#   Simple (default): Install all the software using default values. 
+#                     Not recommended for production environments.
+# 
+#   Advanced: Install selected software with option to change default 
+#             values. Recommended for production environments.
+#
+###############################################################
+
+IAGLOBAL_INSTALL_TYPE_SELECTION=advanced
+
+###############################################################
+# 
+# If performing a default (simple) installation, provide the 
+# user IDs and passwords;  All other values will be defaulted.
+# All of the database information also needs to be provided.
+#
+###############################################################
+
+
+###############################################################
+#
+# WebSphere Information
+#
+# The following is the user ID and password for accessing the 
+# TIP profile created on the TBSM Dashboard Server.
+#
+
+IAGLOBAL_WASUserID=tipadmin
+#IALOCAL_WASPassword=<Password>
+IALOCAL_WASPassword=tipadmin
+
+#
+###############################################################
+
+
+########################################################################
+#
+# Provide the following information for DB2 if installing the 
+# TBSM Data Server.
+#
+# Important: The <HostName> value of IAGLOBAL_DB_TBSM_HOSTNAME must be a 
+#            fully qualified host name or ip address to prevent the 
+#            installation of the Discovery Library Toolkit from failing.
+#########################################################################
+
+#IAGLOBAL_DB_TBSM_HOSTNAME=<HostName>
+IAGLOBAL_DB_TBSM_HOSTNAME=fsxopsxtbsm.wrk.fs.usda.gov
+IAGLOBAL_DB_TBSM_PORT=50000
+IAGLOBAL_DB_TBSM_DBNAME=tbsm
+#IAGLOBAL_DB_TBSM_USERNAME=db2admin
+IAGLOBAL_DB_TBSM_USERNAME=db2inst1
+#IALOCAL_DB_TBSM_PASSWORD=<Password>
+IALOCAL_DB_TBSM_PASSWORD=zAq12wsxcde#
+
+#IAGLOBAL_DB_MARKER_HOSTNAME=<HostName>
+IAGLOBAL_DB_MARKER_HOSTNAME=fsxopsxtbsm.wrk.fs.usda.gov
+IAGLOBAL_DB_MARKER_PORT=50000
+IAGLOBAL_DB_MARKER_DBNAME=tbsm
+#IAGLOBAL_DB_MARKER_USERNAME=db2admin
+IAGLOBAL_DB_MARKER_USERNAME=db2inst1
+#IALOCAL_DB_MARKER_PASSWORD=<Password>
+IALOCAL_DB_MARKER_PASSWORD=zAq12wsxcde#
+
+#IAGLOBAL_DB_HISTORY_HOSTNAME=<HostName>
+IAGLOBAL_DB_HISTORY_HOSTNAME=fsxopsxtbsm.wrk.fs.usda.gov
+IAGLOBAL_DB_HISTORY_PORT=50000
+IAGLOBAL_DB_HISTORY_DBNAME=tbsmhist
+#IAGLOBAL_DB_HISTORY_USERNAME=db2admin
+IAGLOBAL_DB_HISTORY_USERNAME=db2inst1
+#IALOCAL_DB_HISTORY_PASSWORD=<Password>
+IALOCAL_DB_HISTORY_PASSWORD=zAq12wsxcde#
+
+###############################################################
+#
+# If performing an ADVANCED installation, the following can be
+# tailored to your environment;  If using this file for a  
+# simple installation, no further editing of this file is 
+# necessary.
+#
+###############################################################
+
+
+###############################################################
+#
+# Features
+#
+# Specify the features to be installed;  valid values are
+# "true" and "false".
+#
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# OMNIbus Feature
+#
+IAGLOBAL_INSTALL_OMNI_FEATURE=true
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# EIF Probe Feature
+#
+# Note that the variable IAGLOBAL_OBJECTSERVER_PRIMARY_HOST 
+# must be set when the following variable is set to "true".
+#
+#IAGLOBAL_INSTALL_EIF_PROBE_FEATURE=false
+IAGLOBAL_INSTALL_EIF_PROBE_FEATURE=true
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# TBSM Feature
+#
+# This should be set to "true" if installing TBSM Data
+# or Dashboard Server(s) or any subfeature of TBSM 
+# Dashboard Server.
+#
+IAGLOBAL_INSTALL_TBSM_FEATURE=true
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# TBSM Data Server
+#
+IAGLOBAL_INSTALL_TBSM_DATASVR=true
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# TBSM Dashboard Server
+#
+IAGLOBAL_INSTALL_TBSM_DASHSVR=true
+
+###############################################################
+#                                                             #
+#  End of features to be installed                            #
+#                                                             #
+###############################################################
+
+
+###############################################################
+# 
+# User Registry Selection
+# 
+# Provide the following if either the TBSM Data Server or
+# Dashboard Server is being installed
+#
+# Select the type of user registry to be used for user
+# management and authentication. 
+#
+# Note: The local file based registry can be used for 
+# stand-alone or proof of concept installations.  The local 
+# file based registry should be selected if configuring LDAP, 
+# after installation is complete.  The default is using OMNIbus
+# for authentication.
+#
+# The value specified for IAGLOBAL_USER_REGISTRY_FILE_SELECTED
+# should be "1" if local file based registry, "0" if OMNIbus
+# (ObjectServer) registry.
+#
+
+IAGLOBAL_USER_REGISTRY_FILE_SELECTED=0
+
+#
+###############################################################
+
+
+###############################################################
+#
+# Provide the following information if either TBSM Data Server 
+# or TBSM Dashboard Server (or both) is being installed.
+#
+# Note: if installing TBSM Data Server or TBSM Dashboard Server
+# on different machines, do not use "localhost" for the host name.
+#
+# Host name for the Data Server
+#IAGLOBAL_DATA_HOSTNAME=<HostName>
+IAGLOBAL_DATA_HOSTNAME=fsxopsxtbsm.wrk.fs.usda.gov
+
+# Communication port that the Dashboard Server(s) will use to 
+# communicate with the data server
+IAGLOBAL_DATA_RMI_PORT=17542
+
+# If this data server will be configured as a backup server in 
+# a failover configuration, set the following to "YES"
+SVR_TYPE_CHKBOX_SELECTION=NO
+
+# Impact Server command line port
+IAGLOBAL_NCI_CMD_LINE_PORT=2001
+
+
+#
+###############################################################
+
+
+###############################################################
+#
+# WebSphere Port Setup
+#
+# Ports used by TBSM Dashboard Server (TIP) Profile.
+# These ports only need to be provided if installing TBSM Dashboard Server.
+#
+
+IAGLOBAL_WC_defaulthost=16310
+IAGLOBAL_WC_defaulthost_secure=16311
+IAGLOBAL_BOOTSTRAP_ADDRESS=16312
+IAGLOBAL_SOAP_CONNECTOR_ADDRESS=16313
+IAGLOBAL_IPC_CONNECTOR_ADDRESS=16314
+IAGLOBAL_WC_adminhost=16315
+IAGLOBAL_WC_adminhost_secure=16316
+IAGLOBAL_DCS_UNICAST_ADDRESS=16318
+IAGLOBAL_ORB_LISTENER_ADDRESS=16320
+IAGLOBAL_SAS_SSL_SERVERAUTH_LISTENER_ADDRESS=16321
+IAGLOBAL_CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS=16322
+IAGLOBAL_CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS=16323
+IAGLOBAL_REST_NOTIFICATION_PORT=16324
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# Specify the ports used by the TBSM Data Server Profile.
+# These ports only need to be provided if installing TBSM Data Server.
+#
+IAGLOBAL_TBSM_WC_defaulthost=17310
+IAGLOBAL_TBSM_WC_defaulthost_secure=17311
+IAGLOBAL_TBSM_BOOTSTRAP_ADDRESS=17312
+IAGLOBAL_TBSM_SOAP_CONNECTOR_ADDRESS=17313
+IAGLOBAL_TBSM_IPC_CONNECTOR_ADDRESS=17314
+IAGLOBAL_TBSM_WC_adminhost=17315
+IAGLOBAL_TBSM_WC_adminhost_secure=17316
+IAGLOBAL_TBSM_DCS_UNICAST_ADDRESS=17318
+IAGLOBAL_TBSM_ORB_LISTENER_ADDRESS=17320
+IAGLOBAL_TBSM_SAS_SSL_SERVERAUTH_LISTENER_ADDRESS=17321
+IAGLOBAL_TBSM_CSIV2_SSL_MUTUALAUTH_LISTENER_ADDRESS=17322
+IAGLOBAL_TBSM_CSIV2_SSL_SERVERAUTH_LISTENER_ADDRESS=17323
+IAGLOBAL_TBSM_REST_NOTIFICATION_PORT=17324
+
+
+###############################################################
+#
+# Netcool/Impact uses the Netcool Name Server to publish its services.
+# This is required to be defined for all advanced installations.
+#
+# Please provide the following information:
+#
+#   <FullyQualifiedHostName> - no default - provide the fully qualified
+#        hostname for the data server (primary followed by backup if
+#        setting up a failover environment)  
+#   <PortNumber> - no default - provide the IAGLOBAL_TBSM_WC_defaulthost
+#        for the data server 
+#
+#   Please uncomment and enter Name Server and port pairs. 
+#   Between each Name Server and its port a colon sign (:) is required 
+#   and between Name Server and port pairs a comma sign (,) is required.
+#
+#   For example, 
+#   IAGLOBAL_NAMESERVER_HP=jimmy5.responsible.com:17310,simplysam.net:17310,127.0.0.1:17310
+#   This is an ordered list and the first entry in the list 
+#   will be used as the default Name Server.
+#
+#   For Dashboard Server only installs, please provide valid fully qualified 
+#   host name and port combination for the dataserver 
+#
+
+# IAGLOBAL_NAMESERVER_HP=<FullyQualifiedHostName>:<PortNumber>,<FullyQualifiedHostName>:<PortNumber>
+IAGLOBAL_NAMESERVER_HP=fsxopsxtbsm.wrk.fs.usda.gov:17310
+
+#
+###############################################################
+
+
+###############################################################
+#----
+#---- Set eWAS server initial jvm heap size.
+#----    There are 2 jvm servers that will be created on a full
+#----    install (1 for a Dash Board Server Only or Data Server Only
+#----    install). These variables will allow the customer
+#----    to adjust the jvm heap size at install time.
+#----    IAGLOBAL_EWAS_MIN_HEAP_SIZE - for Impact Server, minimum 
+#----            jvm heap size, this value is for the Impact
+#----            Server - default 256 as shown
+#----    IAGLOBAL_EWAS_MAX_HEAP_SIZE - for Impact Server, maximum 
+#----            jvm heap size, this value is for the Impact
+#----            Server - default 1200 as shown (1.2 meg)
+#----    IAGLOBAL_TIP_EWAS_MIN_HEAP_SIZE - for Impact Server, minimum 
+#----            jvm heap size, this value is for the GUI (TIP-based)
+#----            Server - default 256 as shown
+#----    IAGLOBAL_TIP_EWAS_MAX_HEAP_SIZE - for Impact Server, minimum 
+#----            jvm heap size, this value is for the GUI (TIP-based)
+#----            Server - default 1200 as shown
+#----    To change the default values remove the "#" that starts the
+#----    line of the jvm heap size value you wish to modify and update     
+#----    the value to the value you would like.
+
+#IAGLOBAL_EWAS_MIN_HEAP_SIZE=256
+#IAGLOBAL_EWAS_MAX_HEAP_SIZE=1200
+#IAGLOBAL_TIP_EWAS_MIN_HEAP_SIZE=256
+#IAGLOBAL_TIP_EWAS_MAX_HEAP_SIZE=1200
+
+#
+###############################################################
+
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+#
+# Discovery Library Toolkit Panels
+#
+# Provide the following information if the Discovery Library Toolkit is being installed, 
+# The Discovery Library Toolkit always gets installed during a simple install or an advanved
+# install when the data server is being installed.
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+#Export Information
+#
+# migrateExport41xNo=1
+# migrateExport41xYes=0
+#
+# Indicates whether or not an export file exists.  Specify "1" 
+# if an export file will be provided.  Any other value indicates
+# that a file will not be provided.
+#--------------------------------------------------
+fMigrateExport=0
+
+#
+# If migrateExport41xYes=1 is specified, then the following variable
+# identifies the folder that contains the export file.
+#--------------------------------------------------
+EXPORT_DIR_LOCATION=C:/Program Files/IBM/tivoli/discovery/dlbooks
+
+
+#
+# TBSM_SSL_NO=1
+# TBSM_SSL_YES=0
+#
+# Indicate whether SSL will be used when connecting to the TBSM
+# Data Server.  Specify "1" if SSL should be used.  Any other
+# value indicates that SSL will not be used.
+# -------------------------------------------------
+fTbsmSSL=0
+
+#TBSM Data Server Failover Connectivity
+#
+# Indicates whether TBSM has been setup in a failover configuration.
+# Specify "1" if failover has been configured.  Any other value
+# indicates that failover has not been configured.
+#--------------------------------------------------
+fTbsmFailoverConfigured=0
+
+#
+# If failover has been configured, this property indicates
+# whether this toolkit is the primary or backup toolkit.
+# Specify "1" if this toolkit is the primary toolkit.  Any 
+# other value indicates that this toolkit is the backup.
+# If failover is not configured, specify "1".
+#--------------------------------------------------
+fTbsmPrimaryToolkit=1
+
+#
+# Specifies information that will allow the toolkit to connect to
+# the second TBSM data server when failover is configured
+# If failover is not configured, then specify the same values as 
+# was specified for tbsmhostname and tbsmport.
+#--------------------------------------------------
+#tbsmhostnamefailover=<FullyQualifiedHostName>
+tbsmhostnamefailover=fsxopsxtbsm.wrk.fs.usda.gov
+tbsmportfailover=17310
+
+#
+# TBSM_FAILOVER_SSL_NO=1
+# TBSM_FAILOVER_SSL_YES=0
+#
+# Indicate whether SSL will be used when connecting to the TBSM
+# Failover Data Server.  Specify "1" if SSL should be used.  Any 
+# other value indicates that SSL will not be used.
+# -------------------------------------------------
+fTbsmFailoverSSL=0
+
+#Data Source and Database Selections.
+#
+# Specifies whether books, TADDM, or both will be data sources for the
+# toolkit.  Specify "1" for each data source that applies.
+#--------------------------------------------------
+41sourceBooks=1
+41sourceTaddm=0
+
+#
+# tbsmAutoInvalidateNo=0
+# tbsmAutoInvalidateYes=1
+#
+# Indicates whether or not the toolkit should automatically invalidate
+# the TBSM service tree after importing data.  Specify "1" if running
+# with a TBSM Data Server.  Specify "0"if the toolkit # is running with
+# Impact and without a TBSM data server.  
+#--------------------------------------------------
+fAutoInvalidate=1
+
+
+#TADDM Connectivity Configuration
+#
+# Specifies information for connection to the TADDM server.  This is 
+# required if 41sourceTaddm=1 is specified.
+#--------------------------------------------------
+taddmid=administrator
+taddmpw=<Password>
+taddmpw2=<Password>
+taddmhostname=<FullyQualifiedHostName>
+taddmport=9530
+taddmsslport=9531
+
+#
+# taddmSslNo=1
+# taddmSslYes=0
+#
+# Indicate whether SSL will be used when connecting to the TADDM
+# Server.  Specify "1" if SSL should be used.  Any other
+# value indicates that SSL will not be used.
+# -------------------------------------------------
+fTaddmSSL=
+
+#TADDM Database Configuration
+#
+# Specifies information for connecting to the TADDM database
+#--------------------------------------------------
+taddmdbuserid=db2inst1
+taddmdbpw=<Password>
+taddmdbpw2=<Password>
+taddmdbhostname=<FullyQualifiedHostName>
+taddmdbport=50000
+taddmdbname=CMDB
+taddmdbschema=db2inst1
+
+#
+# Specifies the type of database used by the TADDM server.
+# Speicfy "DB2" if DB2 or "Oracle" if TADDM is using Oracle.
+# -------------------------------------------------
+IA_DLT_TADDM_DB_TYPE=DB2
+
+#
+# If the TADDM database is Oracle, then the location of
+# the JDBC drivers is needed.  This property identifies
+# the directory containing the Oracle JDBC jar files.
+#
+# The Oracle JDBC drivers are not shipped with TBSM,
+# so a customer specific directory will be needed.
+# -------------------------------------------------
+oracleJdbcDirectory=
+
+#TBSM Discovery Library Book Import Configuration
+#
+# The directory that the toolkit will monitor for new books.
+# This will be used if 41sourceBooks=1 is specified.
+#--------------------------------------------------
+#DL_BOOK_LOCATION=C:/Program Files/IBM/tivoli/tbsm/discovery/dlbooks
+DL_BOOK_LOCATION=/opt/IBM/tivoli/tbsm/discovery/dlbooks
+
+#TBSM Discovery Library Book Export Configuration
+#
+# The directory that the toolkit will write books to when
+# the genidml script is run.
+#--------------------------------------------------
+#DL_BOOK_EXPORT_LOCATION=C:/Program Files/IBM/tivoli/tbsm/discovery/dlbooks
+DL_BOOK_EXPORT_LOCATION=/opt/IBM/tivoli/tbsm/discovery/dlbooks
+
+#
+# This information is included in the book that the genidml
+# script generates.  This allows for launch-in-context back
+# to TBSM if the book is read by another product.
+#--------------------------------------------------
+#dashboardServer=<FullyQualifiedHostName>
+dashboardServer=fsxopsxtbsm.wrk.fs.usda.gov
+dashboardPort=16311
+
+#
+# Indicates if the DLT is being installed silently by the TBSM
+# base installer. The accepted values are :
+#    true  = DLT is being installed silently by the TBSM.
+#    false = DLT is NOT being installed silently by the TBSM.
+#
+# The default value : false
+#
+#--------------------------------------------------
+DL_TBSM_Silent_Install=true
+
+# Toolkit naming service RMI registry port
+#
+#--------------------------------------------------
+toolkitrmiport=12315
+
+
+###############################################################
+#
+# TBSM Dashboard Server Information
+#
+# Provide the following information if installing the TBSM
+# Dashboard Server.
+#
+
+# Host name of this machine
+# Note: if installing TBSM Dashboard Server and TBSM Data Server
+# on different machines, do not use "localhost" for the host name
+#IAGLOBAL_DASH_HOSTNAME=<HostName>
+IAGLOBAL_DASH_HOSTNAME=fsxopsxtbsm.wrk.fs.usda.gov
+
+# Communication port that the Data Server will use to 
+# communicate with this Dashboard Server:
+IAGLOBAL_DASH_RMI_PORT=17543
+
+# HTTP port of the Data Server
+# Note: If TBSM Data Server is being installed at the same time, 
+# this value was provided above. If installing only a TBSM
+# Dashboard Server, uncomment the following line and 
+# provide the value for IAGLOBAL_TBSM_WC_defaulthost provided
+# during the TBSM Data Server installation
+#IAGLOBAL_DATA_HTTP_PORT=17310
+
+#
+# If the Data Server is running in failover, provide the 
+# information for the backup Data Server.
+#
+
+# Host name for the backup Data Server
+IAGLOBAL_BKUP_DATA_HOSTNAME=<HostName>
+
+# HTTP port of the backup Data Server
+# (Also known as: IAGLOBAL_TBSM_WC_defaulthost)
+IAGLOBAL_BKUP_HTTP_PORT=17310
+IAGLOBAL_BKUP_RMI_PORT=17542
+
+#
+###############################################################
+
+
+
+###############################################################
+#
+# OMNIbus (Object Server) Information
+#
+# If OMNIbus is being installed, provide the machine, 
+# user ID and a password (optional). If no password is provided 
+# a user ID with an empty password will be created.
+# In the case of the default (simple) installation, the user
+# and password fields cannot be provided and will default
+# to root and empty password.  
+#
+# If an advanced installation is being performed and OMNIbus
+# is NOT being installed, the TBSM Data Server and/or 
+# Dashboard Server will need to reference an existing OMNIbus.
+# If this is the case, provide the machine, user ID and
+# password for accessing that Object Server. 
+#
+###############################################################
+
+#IAGLOBAL_OBJECTSERVER_PRIMARY_HOST=<OMNIbusHostName>
+IAGLOBAL_OBJECTSERVER_PRIMARY_HOST=fsxopsxtbsm.wrk.fs.usda.gov
+IAGLOBAL_OBJECTSERVER_PRIMARY_NAME=NCOMS
+IAGLOBAL_OBJECTSERVER_USER=root
+IALOCAL_OBJECTSERVER_PASSWORD=
+IAGLOBAL_OBJECTSERVER_PRIMARY_PORT=4100
+
+
+###############################################################
+#----
+#---- Netcool/Impact uses version control for its configuration files (property
+#----    files, data types and policies). You can use an existing version control
+#----    system or the SVN package bundled with Netcool/Impact.
+#----    Please provide the following information:
+#----
+#----         VERSION_CONTROL_TYPE  values are:
+#----             IMPACT_SVN    - this is also default value
+#----             SYSTEM_SVN
+#----             SYSTEM_CVS
+#----             RCS
+#                 CLEARCASE
+
+IAGLOBAL_VERSION_CONTROL_TYPE=IMPACT_SVN
+
+#----
+###############################################################
+
+###############################################################
+#----
+#---- Netcool/Impact needs to know where to find your version control system.
+#----    Please enter the fully qualified path to the binaries (for example
+#----    $CVSHOME/bin for CVS).
+#----    This is defined if VERSION_CONTROL_TYPE=SYSTEM_SVN|SYSTEM_CVS|RCS|CLEARCASE
+#----    Please provide the following information:
+#----
+#----         VERCTLPATH  - no default - must be fully qualified
+#----             Remove string between < and > and also remove < and > when
+#----             providing your path.
+
+IAGLOBAL_VERCTLPATH=<ENTER_FULLY_QUALIFIED_PATH_HERE>
+
+#----
+###############################################################
+
+
+###############################################################
+#----
+#----    Please select the directory of your cvs repository (the same location
+#----    you would use for the CVSROOT environment variable or the -d option).
+#----    This is defined if VERSION_CONTROL_TYPE=SYSTEM_CVS
+#----    Please provide the following information:
+#----
+#----         VERCTL_REPOSITORY  - no default - must be fully qualified
+#----             Remove string between < and > and also remove < and > when
+#----             providing your path.
+
+IAGLOBAL_VERCTL_REPOSITORY=<ENTER_FULLY_QUALIFIED_PATH_HERE>
+
+
+###############################################################
+#
+# Tivoli EIF Probe Configuration
+#
+# Specify the following items for setting up the Tivoli EIF Probe:
+#   -  The listening port for the Probe to use
+#   -  Setup the Probe for failover ("true" or "false")
+#   -  Setup the Probe as a Windows service ("true" or "false") (Windows ONLY)
+#
+
+IAGLOBAL_PROBE_LISTENING_PORT=9998
+IAGLOBAL_PROBE_SETUP_FAILOVER=false
+IAGLOBAL_PROBE_SETUP_SERVICE=false
+
+#
+###############################################################
+
+
+###############################################################
+## End of silent installation information
+###############################################################

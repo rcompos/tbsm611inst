@@ -1,0 +1,18 @@
+# Source Tivoli Business Services Manager profiles
+# 2011-02-20  IBM USDA FS TBSM421
+#
+
+setupTBSMDash="/opt/IBM/tivoli/tbsm/bin/setupTBSMDash.sh"
+if [ -f $setupTBSMDash ] ; then
+   . $setupTBSMDash
+fi
+
+setupTBSMData="/opt/IBM/tivoli/tbsm/bin/setupTBSMData.sh"
+if [ -f $setupTBSMData ] ; then
+   . $setupTBSMData
+fi
+
+export NCHOME=/opt/IBM/tivoli/netcool
+export OMNIHOME=/opt/IBM/tivoli/netcool/omnibus
+
+export PATH=$PATH:$NCHOME/bin:$OMNIHOME/bin:$TBSM_HOME/bin

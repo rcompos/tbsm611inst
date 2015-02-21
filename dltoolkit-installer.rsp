@@ -1,0 +1,268 @@
+# ------------------------------------------------- {COPYRIGHT-TOP-RM}
+#  Licensed Materials - Property of IBM                       
+#                                                             
+#  "Restricted Materials of IBM"                              
+#                                                             
+#  5724-C51                                                   
+#                                                             
+#  (C) Copyright IBM Corp. 2011 All Rights Reserved.
+#                                                             
+#  US Government Users Restricted Rights - Use, duplication or
+#  disclosure restricted by GSA ADP Schedule Contract with    
+#  IBM Corp.
+# ------------------------------------------------- {COPYRIGHT-END-RM}
+# Tue January 4 14:26:43 EDT 2011
+# Replay feature output
+# ---------------------
+#
+# Tivoli Business Service Manager Discovery Library toolkit silent install
+# response file.
+#
+# This file was built by the Replay feature of InstallAnywhere.
+# It contains variables that were set by Panels, Consoles or Custom Code.
+
+
+#
+# Acknowledges acceptance of the license agreement.  This must be set to 
+# true for a silent installation.
+#
+LICENSE_ACCEPTED=true
+
+
+#Choose Install Folder
+#
+# The directory into which the Discovery Library toolkit will be installed.
+#--------------------------------------------------
+USER_INSTALL_DIR=$IA_DLT_INSTALL_DIR_UNIX$
+# USER_INSTALL_DIR=/opt/IBM/tivoli/tbsm/XMLtoolkit
+
+#Export Information
+#
+# migrateExport41xNo=1
+# migrateExport41xYes=0
+#
+# Indicates whether or not an export file exists.  Specify "1" 
+# if an export file will be provided.  Any other value indicates
+# that a file will not be provided.
+#--------------------------------------------------
+fMigrateExport=0
+
+#
+# If migrateExport41xYes=1 is specified, then the following variable
+# identifies the folder that contains the export file.
+#--------------------------------------------------
+EXPORT_DIR_LOCATION=$DL_BOOK_EXPORT_LOCATION_UNIX$
+
+#TBSM Data Server Connectivity
+#
+# Specifies information that will allow the toolkit to connect to the 
+# TBSM data server.
+#--------------------------------------------------
+tbsmuserid=$IAGLOBAL_WASUserID$
+tbsmpw=$IALOCAL_WASPassword$
+tbsmpw2=$IALOCAL_WASPassword$
+tbsmhostname=$DLT_TBSM_HOST_NAME$
+tbsmport=$IAGLOBAL_DATA_HTTP_PORT$
+
+#
+# TBSM_SSL_NO=1
+# TBSM_SSL_YES=0
+#
+# Indicate whether SSL will be used when connecting to the TBSM
+# Data Server.  Specify "1" if SSL should be used.  Any other
+# value indicates that SSL will not be used.
+# -------------------------------------------------
+fTbsmSSL=0
+
+#TBSM Data Server Failover Connectivity
+#
+# Indicates whether TBSM has been setup in a failover configuration.
+# Specify "1" if failover has been configured.  Any other value
+# indicates that failover has not been configured.
+#--------------------------------------------------
+fTbsmFailoverConfigured=0
+
+#
+# If failover has been configured, this property indicates
+# whether this toolkit is the primary or backup toolkit.
+# Specify "1" if this toolkit is the primary toolkit.  Any 
+# other value indicates that this toolkit is the backup.
+# If failover is not configured, specify "1".
+#--------------------------------------------------
+fTbsmPrimaryToolkit=$IA_DLT_IS_PRIMARY_TOOLKIT$
+
+#
+# Specifies information that will allow the toolkit to connect to
+# the second TBSM data server when failover is configured
+# If failover is not configured, then specify the same values as 
+# was specified for tbsmhostname and tbsmport.
+#--------------------------------------------------
+tbsmhostnamefailover=
+tbsmportfailover=$IAGLOBAL_BKUP_DATA_HTTP_PORT$
+
+#
+# TBSM_FAILOVER_SSL_NO=1
+# TBSM_FAILOVER_SSL_YES=0
+#
+# Indicate whether SSL will be used when connecting to the TBSM
+# Failover Data Server.  Specify "1" if SSL should be used.  Any 
+# other value indicates that SSL will not be used.
+# -------------------------------------------------
+fTbsmFailoverSSL=0
+
+#Data Source and Database Selections.
+#
+# Specifies whether books, TADDM, or both will be data sources for the
+# toolkit.  Specify "1" for each data source that applies.
+#--------------------------------------------------
+41sourceBooks=$41sourceBooks$
+41sourceTaddm=$41sourceTaddm$
+
+#
+# dbtypeDB2=0
+# dbtypePostgres=1
+#
+# Specifies the type of database used by the TBSM data server.  TBSM 6.1.1
+# uses DB2.  TBSM 4.2.1 and earlier use PostgreSQL.  Specify either "DB2"
+# or "PostgreSQL".
+#--------------------------------------------------
+fTbsmDbType=$IAGLOBAL_DB_TYPE$
+
+#
+# tbsmAutoInvalidateNo=0
+# tbsmAutoInvalidateYes=1
+#
+# Indicates whether or not the toolkit should automatically invalidate
+# the TBSM service tree after importing data.  Specify "1" if running
+# with a TBSM Data Server.  Specify "0"if the toolkit # is running with
+# Impact and without a TBSM data server.  
+#--------------------------------------------------
+fAutoInvalidate=1
+
+#TBSM Database Connectivity
+#
+# Specifies information for connecting to the TBSM data server database
+#--------------------------------------------------
+	
+dbuserid=$IAGLOBAL_DB_TBSM_USERNAME$
+dbpw=$IALOCAL_DB_TBSM_PASSWORD$
+dbpw2=$IALOCAL_DB_TBSM_PASSWORD$
+dbhostname=$IAGLOBAL_DB_TBSM_HOSTNAME$
+dbport=$IAGLOBAL_DB_TBSM_PORT$
+dbname=$IAGLOBAL_DB_TBSM_DBNAME$
+dbschema=$IAGLOBAL_DB_TBSM_SCHEMA$
+
+#TADDM Connectivity Configuration
+#
+# Specifies information for connection to the TADDM server.  This is 
+# required if 41sourceTaddm=1 is specified.
+#--------------------------------------------------
+taddmid=$taddmid$
+taddmpw=$taddmpw$
+taddmpw2=$taddmpw2$
+taddmhostname=$taddmhostname$
+taddmport=$taddmport$
+taddmsslport=$taddmsslport$
+
+#
+# taddmSslNo=1
+# taddmSslYes=0
+#
+# Indicate whether SSL will be used when connecting to the TADDM
+# Server.  Specify "1" if SSL should be used.  Any other
+# value indicates that SSL will not be used.
+# -------------------------------------------------
+fTaddmSSL=$taddmssl$
+
+#TADDM Database Configuration
+#
+# Specifies information for connecting to the TADDM database
+#--------------------------------------------------
+taddmdbuserid=$taddmdbuserid$
+taddmdbpw=$taddmdbpw$
+taddmdbpw2=$taddmdbpw2$
+taddmdbhostname=$taddmdbhostname$
+taddmdbport=$taddmdbport$
+taddmdbname=$taddmdbname$
+taddmdbschema=$taddmdbschema$
+
+#
+# Specifies the type of database used by the TADDM server.
+# Speicfy "DB2" if DB2 or "Oracle" if TADDM is using Oracle.
+# -------------------------------------------------
+fTaddmDbType=$IA_DLT_TADDM_DB_TYPE$
+
+#TBSM Discovery Library Book Import Configuration
+#
+# The directory that the toolkit will monitor for new books.
+# This will be used if 41sourceBooks=1 is specified.
+#--------------------------------------------------
+DL_BOOK_LOCATION=$DL_BOOK_IMPORT_LOCATION_UNIX$
+
+#TBSM Discovery Library Book Export Configuration
+#
+# The directory that the toolkit will write books to when
+# the genidml script is run.
+#--------------------------------------------------
+DL_BOOK_EXPORT_LOCATION=$DL_BOOK_EXPORT_LOCATION_UNIX$
+
+#
+# This information is included in the book that the genidml
+# script generates.  This allows for launch-in-context back
+# to TBSM if the book is read by another product.
+#--------------------------------------------------
+dashboardServer=$dashboardServer$
+dashboardPort=$dashboardPort$
+
+# Toolkit naming service RMI registry port
+#
+#--------------------------------------------------
+toolkitrmiport=$toolkitrmiport$
+
+#
+# Indicates if the DLT is being installed silently by the TBSM
+# base installer. The accepted values are :
+#    true  = DLT is being installed silently by the TBSM.
+#    false = DLT is NOT being installed silently by the TBSM.
+#
+# The default value : false
+#
+#--------------------------------------------------
+DL_TBSM_Silent_Install=$DL_TBSM_Silent_Install$
+
+#############################################################
+#
+# Data Interchange Services Configuration Information
+#
+# The following information is required for an advanced install of
+# the TBSM dashboard server
+#
+# Configure Data Interchange Services database:
+#   - The database type, the supported values are "DB2", "MSSQL" and "Oracle",
+#     for example, IAGLOBAL_DIS_DB_TYPE=DB2
+#
+
+IAGLOBAL_DIS_DB_TYPE=$IAGLOBAL_DIS_DB_TYPE$
+
+#
+#   - The Path to the JDBC driver jar files 
+#     for example, 
+#     IAGLOBAL_DIS_DB_DRIVER_CP=C:\\Program Files\\IBM\\java 
+#     should be specified if db2jcc.jar and db2jcc_license_cu.jar are located in
+#     C:\Program Files\IBM\java
+
+IAGLOBAL_DIS_DB_JDBC_LOCATION=$IAGLOBAL_DIS_DB_JDBC_LOCATION$
+
+#   - Database hostname
+#   - Database port for example IAGLOBAL_DIS_DB_PORT=50000
+#   - Database name for example IAGLOBAL_DIS_DB_NAME=DIS
+#   - The database login username
+#   - The database login password
+#
+
+IAGLOBAL_DIS_DB_HOSTNAME=$IAGLOBAL_DIS_DB_HOSTNAME$
+IAGLOBAL_DIS_DB_PORT=$IAGLOBAL_DIS_DB_PORT$
+IAGLOBAL_DIS_DB_NAME=$IAGLOBAL_DIS_DB_NAME$
+IAGLOBAL_DIS_DB_USER=$IAGLOBAL_DIS_DB_USER$
+IAGLOBAL_DIS_DB_PASSWORD=$IAGLOBAL_DIS_DB_PASSWORD$
+

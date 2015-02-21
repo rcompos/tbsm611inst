@@ -1,0 +1,16 @@
+###############################################################################
+##
+## InstallAnywhere variable to configure for silent uninstall
+##
+## Usage: uninstall.exe -f <PathToThisFile>
+##
+## If you see a GUI panel at the beginning it means that -f parameter
+## is not valid. Stop uninstalling, check -f parameter and start again.
+##
+##############################################################################
+
+INSTALLER_UI=SILENT
+
+IAGLOBAL_WASUserID=tipadmin
+#IALOCAL_WASPassword=<Password>
+IALOCAL_WASPassword=tipadmin
